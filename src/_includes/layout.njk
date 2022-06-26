@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ '/assets/main.bundle.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/prism.css' | url }}"></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+
+  <script src="{{ '/assets/main.bundle.js' | url }}" defer></script>
+  <script src="{{ '/assets/prism.js' | url }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+  
+
+  <title>{{ title }} | {{ config.name }}</title>
+</head>
+<body class="{{ 'debug-screens' if env.devMode }}  container mx-auto min-h-screen bg-gradient-to-b from-teal-200 to-white">
+      <div class="max-w-4xl bg-white mx-auto min-h-screen">
+      {% include 'header.njk' %}
+
+      <div class="max-w-4xl container py-4 pb-8 px-4">
+      {% block body %}
+        {{ content | safe }}
+      {% endblock %}
+      </div>
+      </div>
+</body>
+
+</html>
